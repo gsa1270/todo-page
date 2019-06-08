@@ -24,7 +24,10 @@ export default {
     handleInput(event) {
      // console.log(event.keyCode); /*각각의 고유값 enter : 13번 */
       if(event.keyCode == 13){
-        this.$emit('addTodo' , this.text) //$emit  data 넣어주기
+        if(!this.text) return; //공백값 처리하기
+        this.$emit('addTodo' , this.text); //$emit  data 넣어주기
+        this.text ='';
+        
       }
       
     }
